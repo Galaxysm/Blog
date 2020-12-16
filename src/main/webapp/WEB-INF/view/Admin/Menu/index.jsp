@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -55,7 +54,7 @@
                     <div class="layui-input-block">
                         URL
                         <span style="color: #FF5722; ">*</span>
-                        <input type="text" name="menuUrl" placeholder="如：http://liuyanzhao.com/message.html" autocomplete="off" class="layui-input" >
+                        <input type="text" name="menuUrl" placeholder="如：http://baidu.com" autocomplete="off" class="layui-input" >
                     </div>
                     <br>
                     <div class="layui-input-block">
@@ -79,7 +78,7 @@
             <blockquote class="layui-elem-quote layui-quote-nm">
                 温馨提示：
                 <ul>
-                    <li>1、图标为名称前面的字体图标，可选。采用的是<a href="http://fontawesome.io/icons/" target="_blank">fontawesome</a>图标</li>
+                    <li>1、图标为名称前面的字体图标，可选。采用的是<a href="http://www.fontawesome.com.cn/faicons/" target="_blank">fontawesome</a>图标</li>
                     <li>2、目前只有两种菜单：顶部菜单和主要菜单</li>
                 </ul>
             </blockquote>
