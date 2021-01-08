@@ -87,7 +87,7 @@
                 温馨提示：
                 <ul>
                     <li>1、Order范围为0-10,默认为1</li>
-                    <li>2、图标为名称前面的字体图标，可选。采用的是 <a href="http://fontawesome.io/icons/" target="_blank">fontawesome</a>图标</li>
+                    <li>2、图标为名称前面的字体图标，可选。采用的是 <a href="http://www.fontawesome.com.cn/faicons/" target="_blank">fontawesome</a>图标</li>
                     <li>3、目前只有两种菜单：顶部菜单和主要菜单</li>
                 </ul>
             </blockquote>
