@@ -22,7 +22,7 @@
     <style type="text/css">
         body{
             font-family: "Microsoft YaHei", Helvetica, Arial, Lucida Grande, Tahoma, sans-serif;
-            background: url(/img/loginBg.jpg);
+            background: url(/resource/assets/img/loginBg.jpg);
             width:100%;
             height:100%;
         }
@@ -86,11 +86,10 @@
         </p>
         <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="1" checked /> 记住密码</label></p>
         <p class="submit">
-            <input type="button" name="wp-submit" id="submit-btn" class="button button-primary button-large" value="登录" />
+            <input type="button" onclick="window.location.href='register';" name="wp-submit" id="submit-btn-signup" class="button button-primary button-large" value="注册" />
+            <input type="button" name="wp-submit" id="submit-btn-login" class="button button-primary button-large" value="登录" />
         </p>
     </form>
-
-
 
     <script type="text/javascript">
         function wp_attempt_focus(){
@@ -118,7 +117,7 @@
 
 
     <%--登录验证--%>
-    $("#submit-btn").click(function () {
+    $("#submit-btn-login").click(function () {
         var user = $("#user_login").val();
         var password = $("#user_pass").val();
         if(user=="") {
@@ -138,7 +137,6 @@
                         alert(data.msg);
                     } else {
                         window.location.href="/admin";
-
                     }
                 },
                 error: function () {

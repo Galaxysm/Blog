@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
@@ -53,6 +54,29 @@ public class AdminController {
         model.addAttribute("commentList", commentList);
         return "Admin/index";
     }
+
+    /**普通用户注册*/
+    @RequestMapping("/register")
+    public String register(){
+        return "/Admin/register";
+    }
+    /**
+     * 执行普通用户注册
+     *
+     */
+    @RequestMapping(value = "/registerVerify", method = RequestMethod.POST, produces = {"text/plain;charset=UTF-8"})
+    @ResponseBody
+    public String  registerVerify(@RequestParam("username") String userName,
+                            @RequestParam("password") String userPass){
+        User user = new User();
+        user.setUserName(userName);
+        user.setUserPass(userPass);
+        System.out.println(userName+"---"+userPass);
+        userService.register(user);
+        return "/Admin/login";
+    }
+
+
 
     /**
      * 登录页面显示

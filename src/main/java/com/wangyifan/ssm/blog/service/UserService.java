@@ -69,4 +69,10 @@ public interface UserService {
      * @return 用户
      */
     User getUserByEmail(String email);
+
+    /**
+     * 注册功能
+     *
+     */
+    User register(User user);
 }
