@@ -71,7 +71,5 @@ public class UserServiceImpl implements UserService {
         return userMapper.getUserByEmail(email);
     }
 
-    @Override
-    public User register(User user) { userMapper.register(user); return user;}
 
 }

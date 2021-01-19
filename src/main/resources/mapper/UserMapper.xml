@@ -113,21 +113,5 @@
         limit 1
     </select>
 
-    <!--注册功能-->
-    <insert id="register" parameterType="com.wangyifan.ssm.blog.entity.User" useGeneratedKeys="true"
-            keyProperty="userId">
-        insert into
-        <include refid="tb"/>
-        (user_id,
-        user_name,
-        user_pass,
-        user_register_time,
-        user_last_login_time)
-        values (#{userId,jdbcType=INTEGER},
-        #{userName,jdbcType=VARCHAR},
-        #{userPass,jdbcType=VARCHAR},
-        #{userRegisterTime,jdbcType=TIMESTAMP},
-        #{userLastLoginTime,jdbcType=TIMESTAMP})
-    </insert>
 
 </mapper>

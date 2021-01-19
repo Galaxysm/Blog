@@ -67,12 +67,35 @@ public class AdminController {
     @RequestMapping(value = "/registerVerify", method = RequestMethod.POST, produces = {"text/plain;charset=UTF-8"})
     @ResponseBody
     public String  registerVerify(@RequestParam("username") String userName,
-                            @RequestParam("password") String userPass){
+                                  @RequestParam("password") String userPass,
+                                  @RequestParam("useremail") String userEmail,
+                                  @RequestParam("usernickname") String userNickname){
+        Map<String, Object> map = new HashMap<String, Object>();
         User user = new User();
         user.setUserName(userName);
         user.setUserPass(userPass);
-        System.out.println(userName+"---"+userPass);
-        userService.register(user);
+        user.setUserNickname(userNickname);
+        user.setUserEmail(userEmail);
+        //检查用户名是否重复
+        User name=userService.getUserByName(userName);
+        System.out.println(name);
+        //检查邮箱是否重复
+        User email=userService.getUserByEmail(userEmail);
+        if (name==null&&email==null){
+            //注册成功
+            map.put("code", 1);
+            map.put("msg", "注册成功");
+            user.setUserRegisterTime(new Date());
+            user.setUserStatus(1);
+            System.out.println(user);
+            userService.insertUser(user);
+        }else if(name !=null){
+            map.put("code", 0);
+            map.put("msg", "用户名重复！");
+        }else if(email !=null){
+            map.put("code", 0);
+            map.put("msg", "邮箱重复！");
+        }
         return "/Admin/login";
     }
 

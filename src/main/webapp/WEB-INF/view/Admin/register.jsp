@@ -74,15 +74,27 @@
     String username = "";
     String password = "";
     String repassword = "";
+    String useremail = "";
+    String usernickname = "";
 
 %>
-<div id="register">
+<div id="login">
     <h1><a href="/" title="欢迎您光临本站！" tabindex="-1">${options.optionSiteTitle}</a></h1>
 
     <form name="registerForm" id="registerForm" method="post">
         <p>
-            <label for="user_login">用户名或电子邮件地址<br/>
+            <label for="user_login">用户名<br/>
                 <input type="text" name="username" id="user_login" class="input" value="<%=username%>" size="20"
+                       required/></label>
+        </p>
+        <p>
+            <label for="user_email">电子邮件地址<br/>
+                <input type="email" name="useremail" id="user_email" class="input" value="<%=useremail%>" size="20"
+                       required/></label>
+        </p>
+        <p>
+            <label for="user_nickname">昵称<br/>
+                <input type="text" name="usernickname" id="user_nickname" class="input" value="<%=usernickname%>" size="20"
                        required/></label>
         </p>
         <p>
@@ -113,12 +125,18 @@
 
     <%--注册验证--%>
     $("#submit-btn").click(function () {
-        var user = $("#user_login").val();
+        var username = $("#user_login").val();
+        var useremail = $("#user_email").val();
+        var usernickname = $("#user_nickname").val();
         var password = $("#user_pass").val();
         var repassword = $("#user_pass_again").val();
 
-        if (user == "") {
+        if (username == "") {
             alert("用户名不可为空!");
+        } else if (useremail == "") {
+            alert("email不可为空!");
+        } else if (usernickname == "") {
+            alert("昵称不可为空!");
         } else if (password == "") {
             alert("输入密码不可为空!");
         } else if (repassword == "") {
@@ -133,17 +151,17 @@
                 contentType: "application/x-www-form-urlencoded; charset=utf-8",
                 data: $("#registerForm").serialize(),
                 dataType: "json",
-                success: function () {
-                    // if (data == "success") {
-                    // } else {
-                    //     alert("注册成功")
-                    //     window.location.href = "/login";
-                    // }
-                    alert("success")
+                success: function (data) {
+                    if(data.code==0) {
+                        alert(data.msg);
+                    } else {
+                        alert("success");
+                        window.location.href="/login";
+                    }
 
                 },
                 error: function () {
-                    alert(this.data)
+                    alert("注册成功")
 
                 }
             })
