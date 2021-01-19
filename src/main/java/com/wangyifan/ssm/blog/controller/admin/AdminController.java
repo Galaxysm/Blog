@@ -78,7 +78,6 @@ public class AdminController {
         user.setUserEmail(userEmail);
         //检查用户名是否重复
         User name=userService.getUserByName(userName);
-        System.out.println(name);
         //检查邮箱是否重复
         User email=userService.getUserByEmail(userEmail);
         if (name==null&&email==null){
@@ -87,16 +86,17 @@ public class AdminController {
             map.put("msg", "注册成功");
             user.setUserRegisterTime(new Date());
             user.setUserStatus(1);
-            System.out.println(user);
             userService.insertUser(user);
         }else if(name !=null){
+            System.out.println(name);
             map.put("code", 0);
             map.put("msg", "用户名重复！");
         }else if(email !=null){
             map.put("code", 0);
             map.put("msg", "邮箱重复！");
         }
-        return "/Admin/login";
+        String result = new JSONObject(map).toString();
+        return result;
     }
 
 

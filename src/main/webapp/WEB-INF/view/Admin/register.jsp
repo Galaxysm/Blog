@@ -112,8 +112,7 @@
         </p>
 
         <p class="submit">
-            <input type="submit" name="wp-submit" id="submit-btn" class="button button-primary button-large"
-                   value="注册"/>
+            <input type="button" name="wp-submit" id="submit-btn" class="button button-primary button-large" value="注册"/>
         </p>
 
     </form>
@@ -155,13 +154,12 @@
                     if(data.code==0) {
                         alert(data.msg);
                     } else {
-                        alert("success");
+                        alert("注册成功")
                         window.location.href="/login";
                     }
-
                 },
                 error: function () {
-                    alert("注册成功")
+                    alert("注册失败")
 
                 }
             })
