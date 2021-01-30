@@ -92,6 +92,10 @@
     </aside>
     <%--网站概况 end--%>
 
+    <%--音乐盒 start--%>
+
+    <%--音乐盒 end--%>
+
     <%--所有标签 start--%>
     <aside class="widget">
         <h3 class="widget-title">
@@ -110,6 +114,8 @@
         <div class="clear"></div>
     </aside>
     <%--所有标签 end--%>
+
+
 
 
     <%--最新评论 start--%>

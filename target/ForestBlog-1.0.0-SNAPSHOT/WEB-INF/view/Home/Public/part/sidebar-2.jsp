@@ -92,6 +92,14 @@
     </aside>
     <%--网站概况 end--%>
 
+    <%--音乐盒 start--%>
+        <aside class="widget">
+            <h3 class="widget-title">
+                <i class="fa fa-bars"></i><a href="music.jsp">音乐盒</a>
+            </h3>
+        </aside>
+    <%--音乐盒 end--%>
+
     <%--所有标签 start--%>
     <aside class="widget">
         <h3 class="widget-title">
@@ -110,6 +118,8 @@
         <div class="clear"></div>
     </aside>
     <%--所有标签 end--%>
+
+
 
 
     <%--最新评论 start--%>

@@ -65,8 +65,8 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">文章</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="/admin/article">全部文章</a></dd>
                         <dd><a href="/admin/article/insert">写文章</a></dd>
+                        <dd><a href="/admin/article">全部文章</a></dd>
                         <dd><a href="/admin/category">全部分类</a></dd>
                         <dd><a href="/admin/tag">全部标签</a></dd>
                     </dl>
