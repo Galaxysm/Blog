@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
@@ -42,7 +41,7 @@ public class AdminController {
     /**
      * 后台首页
      *
-     * @return
+     * @return index
      */
     @RequestMapping("/admin")
     public String index(Model model) {
@@ -66,29 +65,30 @@ public class AdminController {
      */
     @RequestMapping(value = "/registerVerify", method = RequestMethod.POST, produces = {"text/plain;charset=UTF-8"})
     @ResponseBody
-    public String  registerVerify(@RequestParam("username") String userName,
-                                  @RequestParam("password") String userPass,
-                                  @RequestParam("useremail") String userEmail,
-                                  @RequestParam("usernickname") String userNickname){
+    public String  registerVerify(HttpServletRequest request, HttpServletResponse response){
         Map<String, Object> map = new HashMap<String, Object>();
-        User user = new User();
-        user.setUserName(userName);
-        user.setUserPass(userPass);
-        user.setUserNickname(userNickname);
-        user.setUserEmail(userEmail);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String usernickname = request.getParameter("usernickname");
+        String useremail = request.getParameter("useremail");
+        User user=new User();
+
         //检查用户名是否重复
-        User name=userService.getUserByName(userName);
+        User name=userService.getUserByName(username);
         //检查邮箱是否重复
-        User email=userService.getUserByEmail(userEmail);
+        User email=userService.getUserByEmail(useremail);
         if (name==null&&email==null){
             //注册成功
             map.put("code", 1);
             map.put("msg", "注册成功");
+            user.setUserName(username);
+            user.setUserEmail(useremail);
+            user.setUserNickname(usernickname);
+            user.setUserPass(password);
             user.setUserRegisterTime(new Date());
             user.setUserStatus(1);
             userService.insertUser(user);
         }else if(name !=null){
-            System.out.println(name);
             map.put("code", 0);
             map.put("msg", "用户名重复！");
         }else if(email !=null){
@@ -104,7 +104,7 @@ public class AdminController {
     /**
      * 登录页面显示
      *
-     * @return
+     * @return login
      */
     @RequestMapping("/login")
     public String loginPage() {
