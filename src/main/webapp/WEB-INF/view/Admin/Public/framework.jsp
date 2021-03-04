@@ -6,6 +6,7 @@
 <%@ taglib prefix="rapid" uri="http://www.rapid-framework.org.cn/rapid" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="utf-8">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->

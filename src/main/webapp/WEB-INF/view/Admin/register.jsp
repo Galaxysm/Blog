@@ -79,8 +79,6 @@
 
 %>
 <div id="login">
-    <h1><a href="/" title="欢迎您光临本站！" tabindex="-1">${options.optionSiteTitle}</a></h1>
-
     <form name="registerForm" id="registerForm" method="post">
         <p>
             <label for="user_login">用户名<br/>
@@ -112,7 +110,13 @@
         </p>
 
         <p class="submit">
-            <input type="button" name="wp-submit" id="submit-btn" class="button button-primary button-large" value="注册"/>
+            <input type="button" onclick="window.location.href='login';" name="wp-submit" id="submit-btn-login" class="button button-primary button-large"
+                   style="margin-left: 5px"
+                   value="返回登录"/>
+
+            <input type="button" name="wp-submit" id="submit-btn-register" class="button button-primary button-large"
+                   style="margin-left: 5px"
+                   value="确认注册"/>
         </p>
 
     </form>
@@ -123,7 +127,7 @@
 <script type="text/javascript">
 
     <%--注册验证--%>
-    $("#submit-btn").click(function () {
+    $("#submit-btn-register").click(function () {
         var username = $("#user_login").val();
         var useremail = $("#user_email").val();
         var usernickname = $("#user_nickname").val();

@@ -59,6 +59,24 @@
             height: 54px;
         }
     </style>
+
+<%--  背景图片全图设置Begin--%>
+    <style type="text/css">
+        body{
+            font-family: "Microsoft YaHei", Helvetica, Arial, Lucida Grande, Tahoma, sans-serif;
+            background: url(/resource/assets/img/indexBg.png);
+            width:100%;
+            height:100%;
+        }
+    </style>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+    <%--  背景图片全图设置End--%>
 </head>
 <body>
 <div id="page" class="site" style="transform: none;">

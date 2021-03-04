@@ -10,10 +10,10 @@
     <%--顶部菜单 start--%>
     <nav id="top-header">
         <div class="top-nav">
-            <div class="user-login">
+            <div class="user-login" >
                 <c:choose>
                     <c:when test="${sessionScope.user==null}">
-                        <a href="/admin">进入后台</a>
+                        <a href="/admin" >进入后台</a>
                     </c:when>
                     <c:otherwise>
                         <a href="/admin">进入后台</a>

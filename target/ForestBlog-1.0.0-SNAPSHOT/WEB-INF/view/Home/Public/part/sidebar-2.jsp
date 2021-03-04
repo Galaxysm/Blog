@@ -19,7 +19,7 @@
                 <div class="about-main">
                     <div class="about-img">
                         <img src="${options.optionAboutsiteAvatar}"
-                        alt="QR Code">
+                             alt="QR Code">
                     </div>
                     <div class="about-name">${options.optionAboutsiteTitle}</div>
                     <div class="about-the">
@@ -32,7 +32,7 @@
                         <a title="微信" id="weixin_btn" rel="external nofollow">
                             <i class="fa fa-weixin"> </i>
                             <div id="weixin_code" class="hide">
-                                <img src="${options.optionAboutsiteWechat}" alt="" >
+                                <img src="${options.optionAboutsiteWechat}" alt="">
                             </div>
                         </a>
                     </li>
@@ -67,6 +67,21 @@
     </aside>
     <%--关于本站 start--%>
 
+    <%--音乐盒 start--%>
+    <aside class="widget">
+        <h3 class="widget-title">
+            <i class="fa fa-bars"></i>音乐盒
+        </h3>
+        <div class="tagcloud">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=300 height=450
+                    src="//music.163.com/outchain/player?type=0&id=87531429&auto=1&height=430"></iframe>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </aside>
+
+    <%--音乐盒 end--%>
+
     <%--网站概况 start--%>
     <aside id="php_text-22" class="widget php_text">
         <h3 class="widget-title">
@@ -82,7 +97,8 @@
                 <li><i class="fa fa-eye"></i> 浏览总量：${siteBasicStatistics[5]} 次</li>
                 <li><i class="fa fa-pencil-square-o"></i> 最后更新：
                     <span style="color:#2F889A">
-                                        <fmt:formatDate value="${lastUpdateArticle.articleUpdateTime}" pattern="yyyy年MM月dd日"/>
+                                        <fmt:formatDate value="${lastUpdateArticle.articleUpdateTime}"
+                                                        pattern="yyyy年MM月dd日"/>
 
                                    </span>
                 </li>
@@ -92,13 +108,6 @@
     </aside>
     <%--网站概况 end--%>
 
-    <%--音乐盒 start--%>
-        <aside class="widget">
-            <h3 class="widget-title">
-                <i class="fa fa-bars"></i><a href="music.jsp">音乐盒</a>
-            </h3>
-        </aside>
-    <%--音乐盒 end--%>
 
     <%--所有标签 start--%>
     <aside class="widget">
@@ -120,23 +129,21 @@
     <%--所有标签 end--%>
 
 
-
-
     <%--最新评论 start--%>
     <aside id="recent_comments-2" class="widget recent_comments wow fadeInUp" data-wow-delay="0.3s"><h3
             class="widget-title"><i class="fa fa-bars"></i>近期评论</h3>
         <div id="message" class="message-widget">
             <ul>
                 <c:forEach items="${recentCommentList}" var="r">
-                <li style="border: none;">
-                    <a href="/article/${r.commentArticleId}/#anchor-comment-${r.commentId}"  rel="external nofollow">
-                        <%--<img alt="" src="${r.commentAuthorAvatar}" class="avatar avatar-64 photo" height="64" width="64">--%>
-                        <span class="comment_author">
+                    <li style="border: none;">
+                        <a href="/article/${r.commentArticleId}/#anchor-comment-${r.commentId}" rel="external nofollow">
+                                <%--<img alt="" src="${r.commentAuthorAvatar}" class="avatar avatar-64 photo" height="64" width="64">--%>
+                            <span class="comment_author">
                             <strong>${r.commentAuthorName}</strong>
                         </span>
-                            ${r.commentContent}
-                    </a>
-                </li>
+                                ${r.commentContent}
+                        </a>
+                    </li>
                 </c:forEach>
             </ul>
         </div>
@@ -145,7 +152,6 @@
     <%--最新评论 end--%>
 
 </div>
-
 
 
 <%--博客主体-右侧侧边栏 end--%>
