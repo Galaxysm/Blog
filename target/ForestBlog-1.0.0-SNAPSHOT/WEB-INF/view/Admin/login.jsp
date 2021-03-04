@@ -86,9 +86,12 @@
         </p>
         <p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="1" checked /> 记住密码</label></p>
         <p class="submit">
-            <input type="button" onclick="window.location.href='register';" name="wp-submit" id="submit-btn-signup" class="button button-primary button-large" value="注册" />
-            <input type="button" name="wp-submit" id="submit-btn-login" class="button button-primary button-large" value="登录" />
+            <input type="button" onclick="window.location.href='register';" name="wp-submit" id="submit-btn-register"
+                   class="button button-primary button-large" style="margin-left: 5px" value="注册"/>
+            <input type="button" name="wp-submit" id="submit-btn-login" class="button button-primary button-large"
+                   style="margin-left: 5px" value="登录"/>
         </p>
+
     </form>
 
     <script type="text/javascript">
