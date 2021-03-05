@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
+ * 公告Servie实现
+ *
  * @author 王一凡
  */
 @Service
@@ -19,27 +21,27 @@ public class NoticeServiceImpl implements NoticeService {
     private NoticeMapper noticeMapper;
 
     @Override
-    public List<Notice> listNotice(Integer status)  {
+    public List<Notice> listNotice(Integer status) {
         return noticeMapper.listNotice(status);
     }
 
     @Override
-    public void insertNotice(Notice notice)  {
+    public void insertNotice(Notice notice) {
         noticeMapper.insert(notice);
     }
 
     @Override
-    public void deleteNotice(Integer id)  {
+    public void deleteNotice(Integer id) {
         noticeMapper.deleteById(id);
     }
 
     @Override
-    public void updateNotice(Notice notice)  {
+    public void updateNotice(Notice notice) {
         noticeMapper.update(notice);
     }
 
     @Override
-    public Notice getNoticeById(Integer id)  {
+    public Notice getNoticeById(Integer id) {
         return noticeMapper.getNoticeById(id);
     }
 

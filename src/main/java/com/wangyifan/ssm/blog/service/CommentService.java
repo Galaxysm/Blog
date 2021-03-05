@@ -4,10 +4,13 @@ import com.github.pagehelper.PageInfo;
 import com.wangyifan.ssm.blog.entity.Comment;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 
 /**
+ * 评论Service
+ *
  * @author 王一凡
  */
 @Service
@@ -46,14 +49,20 @@ public interface CommentService {
      */
     PageInfo<Comment> listCommentByPage(
             Integer pageIndex,
-            Integer pageSize);
+            Integer pageSize,
+            HashMap<String, Object> criteria);
 
     /**
-     * 获得评论列表
+     * 获得某个用户收到的评论
      *
+     * @param pageIndex 第几页开始
+     * @param pageSize  一页显示数量
      * @return 列表
      */
-    List<Comment> listComment();
+    PageInfo<Comment> listReceiveCommentByPage(
+            Integer pageIndex,
+            Integer pageSize,
+            Integer userId);
 
 
     /**
@@ -83,7 +92,7 @@ public interface CommentService {
      * @param limit 查询数量
      * @return 列表
      */
-    List<Comment> listRecentComment(Integer limit);
+    List<Comment> listRecentComment(Integer userId, Integer limit);
 
     /**
      * 获得评论的子评论

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Date;
 import java.util.List;
+
 /**
  * @author 王一凡
  */
@@ -27,7 +28,7 @@ public class BackNoticeController {
     /**
      * 后台公告列表显示
      *
-     * @return
+     * @return Admin/Notice/index
      */
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -40,7 +41,7 @@ public class BackNoticeController {
     /**
      * 添加公告显示
      *
-     * @return
+     * @return Admin/Notice/insert
      */
     @RequestMapping(value = "/insert")
     public String insertNoticeView() {
@@ -50,8 +51,8 @@ public class BackNoticeController {
     /**
      * 添加公告提交
      *
-     * @param notice
-     * @return
+     * @param notice 公告
+     * @return redirect:/admin/notice
      */
     @RequestMapping(value = "/insertSubmit", method = RequestMethod.POST)
     public String insertNoticeSubmit(Notice notice) {
@@ -66,8 +67,8 @@ public class BackNoticeController {
     /**
      * 删除公告
      *
-     * @param id
-     * @return
+     * @param id 公告ID
+     * @return redirect:/admin/notice
      */
     @RequestMapping(value = "/delete/{id}")
     public String deleteNotice(@PathVariable("id") Integer id) {
@@ -79,8 +80,8 @@ public class BackNoticeController {
     /**
      * 编辑公告页面显示
      *
-     * @param id
-     * @return
+     * @param id 公告ID
+     * @return Admin/Notice/edit
      */
     @RequestMapping(value = "/edit/{id}")
     public String editNoticeView(@PathVariable("id") Integer id, Model model) {
@@ -93,8 +94,8 @@ public class BackNoticeController {
     /**
      * 编辑公告页面显示
      *
-     * @param notice
-     * @return
+     * @param notice 公告
+     * @return redirect:/admin/notice
      */
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
     public String editNoticeSubmit(Notice notice) {

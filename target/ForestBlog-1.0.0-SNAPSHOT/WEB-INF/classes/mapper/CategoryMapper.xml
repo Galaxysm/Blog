@@ -16,12 +16,13 @@
   </sql>
 
 
-    <insert id="insert" parameterType="com.wangyifan.ssm.blog.entity.Category" useGeneratedKeys="true" keyProperty="categoryId">
+    <insert id="insert" parameterType="com.wangyifan.ssm.blog.entity.Category" useGeneratedKeys="true"
+            keyProperty="categoryId">
         insert into
         <include refid="tb"/>
         (category_pid, category_name,category_description, category_icon)
         values (#{categoryPid,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR},
-        #{categoryDescription,jdbcType=VARCHAR},  #{categoryIcon,jdbcType=VARCHAR})
+        #{categoryDescription,jdbcType=VARCHAR}, #{categoryIcon,jdbcType=VARCHAR})
     </insert>
 
 

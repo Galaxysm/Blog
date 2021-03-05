@@ -9,13 +9,15 @@ import java.util.List;
 
 /**
  * 文章标签关联表Mapper
+ *
  * @author 王一凡
  */
 @Mapper
 public interface ArticleTagRefMapper {
-    
+
     /**
      * 添加文章和标签关联记录
+     *
      * @param record 关联对象
      * @return 影响行数
      */
@@ -23,6 +25,7 @@ public interface ArticleTagRefMapper {
 
     /**
      * 根据标签ID删除记录
+     *
      * @param tagId 标签ID
      * @return 影响行数
      */
@@ -30,6 +33,7 @@ public interface ArticleTagRefMapper {
 
     /**
      * 根据文章ID删除记录
+     *
      * @param articleId 文章ID
      * @return 影响行数
      */
@@ -37,6 +41,7 @@ public interface ArticleTagRefMapper {
 
     /**
      * 根据标签ID统计文章数
+     *
      * @param tagId 标签ID
      * @return 文章数量
      */

@@ -43,7 +43,7 @@ public class CategoryController {
      * 根据分类查询文章
      *
      * @param cateId 分类ID
-     * @return 模板
+     * @return Home/Page/articleListByCategory
      */
     @RequestMapping("/category/{cateId}")
     public String getArticleListByCategory(@PathVariable("cateId") Integer cateId,

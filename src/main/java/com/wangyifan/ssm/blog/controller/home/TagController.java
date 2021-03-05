@@ -17,6 +17,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ * 文章标签的controller
+ *
  * @author 王一凡
  */
 @Controller
@@ -32,7 +34,7 @@ public class TagController {
      * 根据标签查询文章
      *
      * @param tagId 标签ID
-     * @return 模板
+     * @return Home/Page/articleListByTag
      */
     @RequestMapping("/tag/{tagId}")
     public String getArticleListByTag(@PathVariable("tagId") Integer tagId,

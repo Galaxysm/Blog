@@ -29,9 +29,8 @@ public class UploadFileController {
     /**
      * 上传文件
      *
-     * @param file
-     * @return
-     * @throws IOException
+     * @param file 文件
+     * @throws IOException;
      */
     @RequestMapping(value = "/img", method = RequestMethod.POST)
     public JsonResult uploadFile(@RequestParam("file") MultipartFile file) {

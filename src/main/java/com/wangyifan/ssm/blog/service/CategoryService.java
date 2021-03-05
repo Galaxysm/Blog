@@ -7,6 +7,8 @@ import com.wangyifan.ssm.blog.entity.Category;
 import java.util.List;
 
 /**
+ * 类目Service
+ *
  * @author 王一凡
  */
 public interface CategoryService {

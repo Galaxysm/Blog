@@ -29,7 +29,8 @@ public class BackTagController {
 
     /**
      * 后台标签列表显示
-     * @return
+     *
+     * @return modelandview
      */
     @RequestMapping(value = "")
     public ModelAndView index()  {
@@ -46,8 +47,8 @@ public class BackTagController {
     /**
      * 后台添加分类页面显示
      *
-     * @param tag
-     * @return
+     * @param tag 标签
+     * @return redirect:/admin/tag
      */
     @RequestMapping(value = "/insertSubmit",method = RequestMethod.POST)
     public String insertTagSubmit(Tag tag)  {
@@ -59,7 +60,7 @@ public class BackTagController {
      * 删除标签
      *
      * @param id 标签ID
-     * @return
+     * @return redirect:/admin/tag
      */
     @RequestMapping(value = "/delete/{id}")
     public String deleteTag(@PathVariable("id") Integer id)  {
@@ -73,8 +74,8 @@ public class BackTagController {
     /**
      * 编辑标签页面显示
      *
-     * @param id
-     * @return
+     * @param id 标签ID
+     * @return modelAndView
      */
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView editTagView(@PathVariable("id") Integer id)  {
@@ -94,8 +95,8 @@ public class BackTagController {
     /**
      * 编辑标签提交
      *
-     * @param tag
-     * @return
+     * @param tag 标签
+     * @return redirect:/admin/tag
      */
     @RequestMapping(value = "/editSubmit",method = RequestMethod.POST)
     public String editTagSubmit(Tag tag)  {

@@ -14,7 +14,7 @@ public interface NoticeMapper {
 
     /**
      * 根据ID删除
-     * 
+     *
      * @param noticeId 公告ID
      * @return 影响行数
      */
@@ -22,7 +22,7 @@ public interface NoticeMapper {
 
     /**
      * 添加
-     * 
+     *
      * @param notice 公告
      * @return 影响行数
      */
@@ -30,7 +30,7 @@ public interface NoticeMapper {
 
     /**
      * 根据ID查询
-     * 
+     *
      * @param noticeId 公告ID
      * @return 公告
      */
@@ -38,7 +38,7 @@ public interface NoticeMapper {
 
     /**
      * 获得公告列表
-     * 
+     *
      * @param notice 公告
      * @return 影响行数
      */
@@ -46,7 +46,7 @@ public interface NoticeMapper {
 
     /**
      * 获得公告列表
-     * 
+     *
      * @param notice 公告
      * @return 影响行数
      */
@@ -54,7 +54,7 @@ public interface NoticeMapper {
 
     /**
      * 获得公告总数
-     * 
+     *
      * @param status 状态
      * @return 影响行数
      */
@@ -62,7 +62,7 @@ public interface NoticeMapper {
 
     /**
      * 获得公告列表
-     * 
+     *
      * @param status 状态
      * @return 公告列表
      */

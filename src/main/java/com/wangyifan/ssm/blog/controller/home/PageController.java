@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 /**
+ * 页面的controller
+ *
  * @author 王一凡
  */
 @Controller
@@ -41,8 +43,8 @@ public class PageController {
     /**
      * 页面详情页面
      *
-     * @param key
-     * @return
+     * @param key ;
+     * @return Home/Page/page
      */
     @RequestMapping(value = "/{key}")
     public String pageDetail(@PathVariable("key") String key, Model model) {
@@ -64,7 +66,7 @@ public class PageController {
     /**
      * 文章归档页面显示
      *
-     * @return
+     * @return Home/Page/articleFile
      */
     @RequestMapping(value = "/articleFile")
     public String articleFile(Model model) {
@@ -80,7 +82,7 @@ public class PageController {
     /**
      * 站点地图显示
      *
-     * @return
+     * @return Home/Page/siteMap
      */
     @RequestMapping(value = "/map")
     public String siteMap(Model model) {
@@ -104,7 +106,7 @@ public class PageController {
     /**
      * 留言板
      *
-     * @return
+     * @return Home/Page/message
      */
     @RequestMapping(value = "/message")
     public String message(Model model) {

@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="/img/logo.png">
     <title>
         ${options.optionSiteTitle}后台
-            <rapid:block name="title"></rapid:block>
+        <rapid:block name="title"></rapid:block>
     </title>
     <link rel="stylesheet" href="/plugin/layui/css/layui.css">
     <link rel="stylesheet" href="/css/back.css">
@@ -25,7 +25,7 @@
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header">
         <div class="layui-logo"><a href="/admin" style="color:#009688;">
-        ${options.optionSiteTitle}后台
+            ${options.optionSiteTitle}后台
         </a>
         </div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
@@ -36,7 +36,6 @@
                 <dl class="layui-nav-child">
                     <dd><a href="/admin/article/insert">文章</a></dd>
                     <dd><a href="/admin/page/insert">页面</a></dd>
-                    <%-- <dd><a href="/admin/category/insert">分类</a></dd> --%>
                     <dd><a href="/admin/link/insert">链接</a></dd>
                     <dd><a href="/admin/notice/insert">公告</a></dd>
 
@@ -50,7 +49,7 @@
                     ${sessionScope.user.userName}
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="/admin/user/profile">基本资料</a></dd>
+                    <dd><a href="/admin/profile">基本资料</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item">
@@ -62,7 +61,7 @@
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">文章</a>
                     <dl class="layui-nav-child">
@@ -80,9 +79,7 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a class="" href="javascript:;">
-                        链接
-                    </a>
+                    <a class="" href="javascript:;">链接</a>
                     <dl class="layui-nav-child">
                         <dd><a href="/admin/link">全部链接</a></dd>
                         <dd><a href="/admin/link/insert">添加链接</a></dd>
@@ -99,6 +96,13 @@
                     <a href="/admin/comment">
                         评论
                     </a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">用户</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/user">全部用户</a></dd>
+                        <dd><a href="/admin/user/insert">添加用户</a></dd>
+                    </dl>
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">设置</a>

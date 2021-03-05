@@ -34,7 +34,7 @@ public class BackCategoryController {
     /**
      * 后台分类列表显示
      *
-     * @return
+     * @return modelandview
      */
     @RequestMapping(value = "")
     public ModelAndView categoryList()  {
@@ -50,8 +50,7 @@ public class BackCategoryController {
     /**
      * 后台添加分类提交
      *
-     * @param category
-     * @return
+     * @return redirect:/admin/category
      */
     @RequestMapping(value = "/insertSubmit",method = RequestMethod.POST)
     public String insertCategorySubmit(Category category)  {
@@ -62,8 +61,7 @@ public class BackCategoryController {
     /**
      * 删除分类
      *
-     * @param id
-     * @return
+     * @return redirect:/admin/category
      */
     @RequestMapping(value = "/delete/{id}")
     public String deleteCategory(@PathVariable("id") Integer id)  {
@@ -79,8 +77,8 @@ public class BackCategoryController {
     /**
      * 编辑分类页面显示
      *
-     * @param id
-     * @return
+     * @param id 分类ID
+     * @return modelAndView
      */
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView editCategoryView(@PathVariable("id") Integer id)  {
@@ -99,8 +97,7 @@ public class BackCategoryController {
     /**
      * 编辑分类提交
      *
-     * @param category 分类
-     * @return 重定向
+     * @return redirect:/admin/category
      */
     @RequestMapping(value = "/editSubmit",method = RequestMethod.POST)
     public String editCategorySubmit(Category category)  {

@@ -77,6 +77,13 @@
                     </div>
                 </div>
             </form>
+            <blockquote class="layui-elem-quote layui-quote-nm">
+                温馨提示：
+                <ul>
+                    <li>1、图标为名称前面的字体图标，可选。采用的是<a href="http://www.fontawesome.com.cn/faicons/" target="_blank">fontawesome</a>图标</li>
+                    <li>2、子节点设置图标样式可能无法生效，目前只支持父节点设置图标样式</li>
+                </ul>
+            </blockquote>
         </div>
         <div class="layui-col-md8" >
             <table class="layui-table" >

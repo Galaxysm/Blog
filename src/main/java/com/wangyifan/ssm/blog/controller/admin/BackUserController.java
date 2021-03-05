@@ -2,15 +2,18 @@ package com.wangyifan.ssm.blog.controller.admin;
 
 
 import com.wangyifan.ssm.blog.entity.User;
+import com.wangyifan.ssm.blog.enums.UserRole;
 import com.wangyifan.ssm.blog.service.UserService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +33,7 @@ public class BackUserController {
     /**
      * 后台用户列表显示
      *
-     * @return
+     * @return modelandview
      */
     @RequestMapping(value = "")
     public ModelAndView userList()  {
@@ -47,7 +50,7 @@ public class BackUserController {
     /**
      * 后台添加用户页面显示
      *
-     * @return
+     * @return modelandview
      */
     @RequestMapping(value = "/insert")
     public ModelAndView insertUserView()  {
@@ -59,13 +62,12 @@ public class BackUserController {
     /**
      * 检查用户名是否存在
      *
-     * @param request
-     * @return
+     * @param request;
      */
     @RequestMapping(value = "/checkUserName",method = RequestMethod.POST, produces = {"text/plain;charset=UTF-8"})
     @ResponseBody
     public String checkUserName(HttpServletRequest request)  {
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         String username = request.getParameter("username");
         User user = userService.getUserByName(username);
         int id = Integer.valueOf(request.getParameter("id"));
@@ -86,8 +88,7 @@ public class BackUserController {
     /**
      * 检查Email是否存在
      *
-     * @param request
-     * @return
+     * @param request;
      */
     @RequestMapping(value = "/checkUserEmail",method = RequestMethod.POST, produces = {"text/plain;charset=UTF-8"})
     @ResponseBody
@@ -114,16 +115,17 @@ public class BackUserController {
     /**
      * 后台添加用户页面提交
      *
-     * @param user
-     * @return
+     * @param user 用户
+     * @return redirect:/admin/user
      */
     @RequestMapping(value = "/insertSubmit",method = RequestMethod.POST)
     public String insertUserSubmit(User user)  {
-        User user2 = userService.getUserByName(user.getUserName());
-        User user3 = userService.getUserByEmail(user.getUserEmail());
-        if(user2==null&&user3==null) {
-            user.setUserRegisterTime(new Date());
-            user.setUserStatus(1);
+        User username = userService.getUserByName(user.getUserName());
+        User useremail = userService.getUserByEmail(user.getUserEmail());
+        if(username==null&&useremail==null) {
+            user.setUserRegisterTime(new Date());               //设置注册时间
+            user.setUserStatus(1);                              //设置用户状态-正常Or禁用
+            user.setUserRole(UserRole.USER.getValue());         //设置用户角色-admin Or user
             userService.insertUser(user);
         }
         return "redirect:/admin/user";
@@ -132,8 +134,8 @@ public class BackUserController {
     /**
      * 删除用户
      *
-     * @param id
-     * @return
+     * @param id 用户ID
+     * @return redirect:/admin/user
      */
     @RequestMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable("id") Integer id)  {
@@ -144,8 +146,8 @@ public class BackUserController {
     /**
      * 编辑用户页面显示
      *
-     * @param id
-     * @return
+     * @param id 用户ID
+     * @return modelAndView
      */
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView editUserView(@PathVariable("id") Integer id)  {
@@ -162,8 +164,8 @@ public class BackUserController {
     /**
      * 编辑用户提交
      *
-     * @param user
-     * @return
+     * @param user 用户
+     * @return redirect:/admin/user
      */
     @RequestMapping(value = "/editSubmit",method = RequestMethod.POST)
     public String editUserSubmit(User user)  {
@@ -171,20 +173,4 @@ public class BackUserController {
         return "redirect:/admin/user";
     }
 
-    /**
-     * 基本信息页面显示
-     *
-     * @return
-     */
-    @RequestMapping(value = "/profile")
-    public ModelAndView userProfileView(HttpSession session)  {
-
-        ModelAndView modelAndView = new ModelAndView();
-        User sessionUser = (User) session.getAttribute("user");
-        User user =  userService.getUserById(sessionUser.getUserId());
-        modelAndView.addObject("user",user);
-
-        modelAndView.setViewName("Admin/User/profile");
-        return modelAndView;
-    }
 }

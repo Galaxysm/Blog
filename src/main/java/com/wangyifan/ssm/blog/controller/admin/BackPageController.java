@@ -28,7 +28,7 @@ public class BackPageController {
     /**
      * 后台页面列表显示
      *
-     * @return
+     * @return modelAndView
      */
     @RequestMapping(value = "")
     public ModelAndView index() {
@@ -43,7 +43,7 @@ public class BackPageController {
     /**
      * 后台添加页面页面显示
      *
-     * @return
+     * @return modelAndView
      */
     @RequestMapping(value = "/insert")
     public ModelAndView insertPageView() {
@@ -55,8 +55,8 @@ public class BackPageController {
     /**
      * 后台添加页面提交操作
      *
-     * @param page
-     * @return
+     * @param page 页面
+     * @return redirect:/admin/page
      */
     @RequestMapping(value = "/insertSubmit", method = RequestMethod.POST)
     public String insertPageSubmit(Page page) {
@@ -75,8 +75,8 @@ public class BackPageController {
     /**
      * 删除页面
      *
-     * @param id
-     * @return
+     * @param id 页面ID
+     * @return redirect:/admin/page
      */
     @RequestMapping(value = "/delete/{id}")
     public String deletePage(@PathVariable("id") Integer id) {
@@ -89,8 +89,8 @@ public class BackPageController {
     /**
      * 编辑页面页面显示
      *
-     * @param id
-     * @return
+     * @param id 页面ID
+     * @return modelAndView
      */
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView editPageView(@PathVariable("id") Integer id) {
@@ -107,8 +107,8 @@ public class BackPageController {
     /**
      * 编辑页面提交
      *
-     * @param page
-     * @return
+     * @param page 页面
+     * @return redirect:/admin/page
      */
     @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
     public String editPageSubmit(Page page) {

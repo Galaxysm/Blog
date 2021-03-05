@@ -19,6 +19,7 @@ public interface MenuMapper {
 
     /**
      * 添加
+     *
      * @param menu 菜单
      * @return 影响行数
      */
@@ -34,7 +35,7 @@ public interface MenuMapper {
 
     /**
      * 更新
-     * 
+     *
      * @param menu 菜单
      * @return 影响行数
      */
@@ -42,8 +43,8 @@ public interface MenuMapper {
 
     /**
      * 获得菜单列表
-     * 
+     *
      * @return 列表
      */
-    List<Menu> listMenu() ;
+    List<Menu> listMenu();
 }

@@ -13,6 +13,8 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import java.util.List;
 
 /**
+ * 标签Servie实现
+ *
  * @author 王一凡
  */
 @Service
@@ -64,7 +66,8 @@ public class TagServiceImpl implements TagService {
         Tag tag = null;
         try {
             tag = tagMapper.getTagById(id);
-        } catch (Exception e) {            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             log.error("根据ID获得标签失败, id:{}, cause:{}", id, e);
         }
         return tag;
@@ -110,7 +113,8 @@ public class TagServiceImpl implements TagService {
         Tag tag = null;
         try {
             tag = tagMapper.getTagByName(name);
-        } catch (Exception e) {            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             log.error("根据名称获得标签, name:{}, cause:{}", name, e);
         }
         return tag;

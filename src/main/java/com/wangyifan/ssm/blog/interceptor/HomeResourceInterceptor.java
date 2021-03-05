@@ -1,4 +1,7 @@
 package com.wangyifan.ssm.blog.interceptor;
+/**
+ * @author 王一凡
+ */
 
 import com.wangyifan.ssm.blog.entity.Article;
 import com.wangyifan.ssm.blog.entity.Category;
@@ -6,8 +9,6 @@ import com.wangyifan.ssm.blog.entity.Menu;
 import com.wangyifan.ssm.blog.entity.Options;
 import com.wangyifan.ssm.blog.enums.ArticleStatus;
 import com.wangyifan.ssm.blog.enums.LinkStatus;
-import com.wangyifan.ssm.blog.service.*;
-
 import com.wangyifan.ssm.blog.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -78,11 +79,11 @@ public class HomeResourceInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView)  {
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e)  {
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
 
     }
 }

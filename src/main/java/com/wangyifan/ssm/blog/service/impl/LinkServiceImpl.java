@@ -10,43 +10,44 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
+ * 链接Servie实现
  *
  * @author 王一凡
  */
 @Service
 public class LinkServiceImpl implements LinkService {
-	
-	@Autowired
-	private LinkMapper linkMapper;
-	
-	@Override
-	public Integer countLink(Integer status)  {
-		return linkMapper.countLink(status);
-	}
-	
-	@Override
-	public List<Link> listLink(Integer status)  {
-		return linkMapper.listLink(status);
-	}
 
-	@Override
-	public void insertLink(Link link)  {
-		linkMapper.insert(link);
-	}
+    @Autowired
+    private LinkMapper linkMapper;
 
-	@Override
-	public void deleteLink(Integer id)  {
-		linkMapper.deleteById(id);
-	}
+    @Override
+    public Integer countLink(Integer status) {
+        return linkMapper.countLink(status);
+    }
 
-	@Override
-	public void updateLink(Link link)  {
-		linkMapper.update(link);
-	}
+    @Override
+    public List<Link> listLink(Integer status) {
+        return linkMapper.listLink(status);
+    }
 
-	@Override
-	public Link getLinkById(Integer id)  {
-		return linkMapper.getLinkById(id);
-	}
+    @Override
+    public void insertLink(Link link) {
+        linkMapper.insert(link);
+    }
+
+    @Override
+    public void deleteLink(Integer id) {
+        linkMapper.deleteById(id);
+    }
+
+    @Override
+    public void updateLink(Link link) {
+        linkMapper.update(link);
+    }
+
+    @Override
+    public Link getLinkById(Integer id) {
+        return linkMapper.getLinkById(id);
+    }
 
 }

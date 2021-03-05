@@ -26,7 +26,7 @@ public class BackMenuController {
     /**
      * 后台菜单列表显示
      *
-     * @return
+     * @return Admin/Menu/index
      */
     @RequestMapping(value = "")
     public String menuList(Model model)  {
@@ -38,8 +38,8 @@ public class BackMenuController {
     /**
      * 添加菜单内容提交
      *
-     * @param menu
-     * @return
+     * @param menu 菜单
+     * @return redirect:/admin/menu
      */
     @RequestMapping(value = "/insertSubmit",method = RequestMethod.POST)
     public String insertMenuSubmit(Menu menu)  {
@@ -53,8 +53,8 @@ public class BackMenuController {
     /**
      * 删除菜单内容
      *
-     * @param id
-     * @return
+     * @param id 菜单ID
+     * @return redirect:/admin/menu
      */
     @RequestMapping(value = "/delete/{id}")
     public String deleteMenu(@PathVariable("id") Integer id)  {
@@ -65,8 +65,8 @@ public class BackMenuController {
     /**
      * 编辑菜单内容显示
      *
-     * @param id
-     * @return
+     * @param id 菜单ID
+     * @return modelAndView
      */
     @RequestMapping(value = "/edit/{id}")
     public ModelAndView editMenuView(@PathVariable("id") Integer id)  {
@@ -86,8 +86,8 @@ public class BackMenuController {
     /**
      * 编辑菜单内容提交
      *
-     * @param menu
-     * @return
+     * @param menu 菜单
+     * @return redirect:/admin/menu
      */
     @RequestMapping(value = "/editSubmit",method = RequestMethod.POST)
     public String editMenuSubmit(Menu menu)  {

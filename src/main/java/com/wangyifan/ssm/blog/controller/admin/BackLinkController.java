@@ -30,11 +30,11 @@ public class BackLinkController {
      * @return modelAndView
      */
     @RequestMapping(value = "")
-    public ModelAndView linkList()  {
+    public ModelAndView linkList() {
         ModelAndView modelandview = new ModelAndView();
 
         List<Link> linkList = linkService.listLink(null);
-        modelandview.addObject("linkList",linkList);
+        modelandview.addObject("linkList", linkList);
 
         modelandview.setViewName("Admin/Link/index");
         return modelandview;
@@ -47,11 +47,11 @@ public class BackLinkController {
      * @return modelAndView
      */
     @RequestMapping(value = "/insert")
-    public ModelAndView insertLinkView()  {
+    public ModelAndView insertLinkView() {
         ModelAndView modelAndView = new ModelAndView();
 
         List<Link> linkList = linkService.listLink(null);
-        modelAndView.addObject("linkList",linkList);
+        modelAndView.addObject("linkList", linkList);
 
         modelAndView.setViewName("Admin/Link/insert");
         return modelAndView;
@@ -61,10 +61,10 @@ public class BackLinkController {
      * 后台添加链接页面提交
      *
      * @param link 链接
-     * @return 响应
+     * @return redirect:/admin/link/insert
      */
-    @RequestMapping(value = "/insertSubmit",method = RequestMethod.POST)
-    public String insertLinkSubmit(Link link)  {
+    @RequestMapping(value = "/insertSubmit", method = RequestMethod.POST)
+    public String insertLinkSubmit(Link link) {
         link.setLinkCreateTime(new Date());
         link.setLinkUpdateTime(new Date());
         link.setLinkStatus(1);
@@ -76,10 +76,10 @@ public class BackLinkController {
      * 删除链接
      *
      * @param id 链接ID
-     * @return 响应
+     * @return redirect:/admin/link
      */
     @RequestMapping(value = "/delete/{id}")
-    public String deleteLink(@PathVariable("id") Integer id)  {
+    public String deleteLink(@PathVariable("id") Integer id) {
 
         linkService.deleteLink(id);
         return "redirect:/admin/link";
@@ -88,18 +88,18 @@ public class BackLinkController {
     /**
      * 编辑链接页面显示
      *
-     * @param id
+     * @param id 链接ID
      * @return modelAndVIew
      */
     @RequestMapping(value = "/edit/{id}")
-    public ModelAndView editLinkView(@PathVariable("id") Integer id)  {
+    public ModelAndView editLinkView(@PathVariable("id") Integer id) {
         ModelAndView modelAndView = new ModelAndView();
 
-        Link linkCustom =  linkService.getLinkById(id);
-        modelAndView.addObject("linkCustom",linkCustom);
+        Link linkCustom = linkService.getLinkById(id);
+        modelAndView.addObject("linkCustom", linkCustom);
 
         List<Link> linkList = linkService.listLink(null);
-        modelAndView.addObject("linkList",linkList);
+        modelAndView.addObject("linkList", linkList);
 
         modelAndView.setViewName("Admin/Link/edit");
         return modelAndView;
@@ -110,10 +110,10 @@ public class BackLinkController {
      * 编辑链接提交
      *
      * @param link 链接
-     * @return 响应
+     * @return redirect:/admin/link
      */
-    @RequestMapping(value = "/editSubmit",method = RequestMethod.POST)
-    public String editLinkSubmit(Link link)  {
+    @RequestMapping(value = "/editSubmit", method = RequestMethod.POST)
+    public String editLinkSubmit(Link link) {
         link.setLinkUpdateTime(new Date());
         linkService.updateLink(link);
         return "redirect:/admin/link";

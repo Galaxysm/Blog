@@ -23,7 +23,7 @@ public class BackOptionsController {
     /**
      * 基本信息显示
      *
-     * @return
+     * @return modelAndView
      */
     @RequestMapping(value = "")
     public ModelAndView index()  {
@@ -38,7 +38,7 @@ public class BackOptionsController {
     /**
      * 编辑基本信息显示
      *
-     * @return
+     * @return modelAndView
      */
     @RequestMapping(value = "/edit")
     public ModelAndView editOptionView()  {
@@ -53,8 +53,8 @@ public class BackOptionsController {
     /**
      * 编辑基本信息提交
      *
-     * @param options
-     * @return
+     * @param options 基本信息
+     * @return redirect:/admin/options
      */
     @RequestMapping(value = "/editSubmit",method = RequestMethod.POST)
     public String editOptionSubmit(Options options)  {

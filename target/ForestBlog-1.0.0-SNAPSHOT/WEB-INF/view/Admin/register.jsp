@@ -79,7 +79,7 @@
 
 %>
 <div id="login">
-    <form name="registerForm" id="registerForm" method="post"">
+    <form name="registerForm" id="registerForm" method="post">
         <p>
             <label for="user_login">用户名<br/>
                 <input type="text" name="username" id="user_login" class="input" value="<%=username%>" size="20"

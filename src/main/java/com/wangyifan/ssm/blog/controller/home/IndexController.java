@@ -2,18 +2,15 @@ package com.wangyifan.ssm.blog.controller.home;
 
 import com.github.pagehelper.PageInfo;
 import com.wangyifan.ssm.blog.entity.*;
-import com.wangyifan.ssm.blog.entity.*;
 import com.wangyifan.ssm.blog.enums.ArticleStatus;
 import com.wangyifan.ssm.blog.enums.LinkStatus;
-
 import com.wangyifan.ssm.blog.enums.NoticeStatus;
-
-import com.wangyifan.ssm.blog.service.*;
 import com.wangyifan.ssm.blog.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -63,7 +60,7 @@ public class IndexController {
         List<Tag> allTagList = tagService.listTag();
         model.addAttribute("allTagList", allTagList);
         //最新评论
-        List<Comment> recentCommentList = commentService.listRecentComment(10);
+        List<Comment> recentCommentList = commentService.listRecentComment(null, 10);
         model.addAttribute("recentCommentList", recentCommentList);
         model.addAttribute("pageUrlPrefix", "/article?pageIndex");
         return "Home/index";
@@ -92,7 +89,7 @@ public class IndexController {
         List<Article> mostCommentArticleList = articleService.listArticleByCommentCount(8);
         model.addAttribute("mostCommentArticleList", mostCommentArticleList);
         //最新评论
-        List<Comment> recentCommentList = commentService.listRecentComment(10);
+        List<Comment> recentCommentList = commentService.listRecentComment(null, 10);
         model.addAttribute("recentCommentList", recentCommentList);
         model.addAttribute("pageUrlPrefix", "/search?pageIndex");
         return "Home/Page/search";
@@ -104,6 +101,13 @@ public class IndexController {
         return "Home/Error/404";
     }
 
+
+    @RequestMapping("/403")
+    public String Page403(@RequestParam(required = false) String message, Model model) {
+        model.addAttribute("message", message);
+        return "Home/Error/403";
+    }
+
     @RequestMapping("/500")
     public String ServerError(@RequestParam(required = false) String message, Model model) {
         model.addAttribute("message", message);
@@ -112,6 +116,7 @@ public class IndexController {
 
 
 }
+
 
 
 

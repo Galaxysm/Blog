@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
+ * 链接申请的controller
  * @author 王一凡
  */
 @Controller

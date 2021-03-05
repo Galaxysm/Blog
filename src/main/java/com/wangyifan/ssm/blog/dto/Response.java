@@ -2,7 +2,6 @@ package com.wangyifan.ssm.blog.dto;
 
 /**
  * @author 王一凡
- *
  */
 
 public class Response<T> {
@@ -38,7 +37,6 @@ public class Response<T> {
     public static <T> Response<T> yes(T data) {
         return new Response(true, "操作成功", data);
     }
-
 
     public static <T> Response<T> no() {
         return new Response(false, "操作失败");

@@ -4,7 +4,6 @@ import lombok.Data;
 
 /**
  * @author 王一凡
- *
  */
 @Data
 public class JsonResult<T> {
@@ -47,7 +46,6 @@ public class JsonResult<T> {
     public JsonResult ok() {
         return new JsonResult(0, "操作成功", null);
     }
-
 
     public JsonResult ok(T data) {
         return new JsonResult(0, "操作成功", data);
